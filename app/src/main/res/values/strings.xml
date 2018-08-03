@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">X-mode Challenge</string>
+
+    <string name="alarm_set">Location Alarm Set!</string>
+
+    <!-- Permissions -->
+    <string name="location_permission_required">Location permission is required for this app.</string>
+    <string name="location_permission_granted">location permission was granted.</string>
+    <string name="location_permission_denied">location permission request was denied.</string>
+    <string name="ok">ok</string>
+</resources>
