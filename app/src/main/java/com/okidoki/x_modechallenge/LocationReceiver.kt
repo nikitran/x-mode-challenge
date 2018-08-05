@@ -103,7 +103,7 @@ class LocationReceiver: BroadcastReceiver() {
         } else {
             msg = "LON: ${location.longitude} LAT: ${location.latitude}"
             Toast.makeText(context, msg, Toast.LENGTH_LONG).show()
-            Log.d(TAG, "str: $msg")
+            Log.d(TAG, "$str: $msg")
 
             // TODO: persist location data
             // 1. shared preferences - key-value pair storage of the device, for small amount of data, typically used for setting preferences
