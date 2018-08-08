@@ -3,7 +3,6 @@ package com.okidoki.x_modechallenge
 import android.Manifest
 import android.content.pm.PackageManager
 import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.ActivityCompat
@@ -42,7 +41,7 @@ class RetrieveLocationActivity : AppCompatActivity(), RetrieveLocationContract.V
         val clickableSpan = object : ClickableSpan() {
             override fun onClick(textView: View) {
                 Log.d(TAG, "Hello text clicked")
-                startLocationAlarm()
+                mActionListener.startLocationAlarm(this@RetrieveLocationActivity)
             }
 
             override fun updateDrawState(ds: TextPaint) {
@@ -97,29 +96,5 @@ class RetrieveLocationActivity : AppCompatActivity(), RetrieveLocationContract.V
         }
     }
 
-    /**
-     * Check if the location permission has been granted, setup the AlarmManager if it is
-     */
-    private fun startLocationAlarm() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M &&
-                ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
-            mActionListener.setRepeatingLocationAlarm(this)
-        } else {
-            requestLocationPermission()
-        }
-    }
-
-    /**
-     * requestLocationPermission()
-     * Determines if rationale should be shown to the user, then sends a permission request. The first
-     * request will not show the rationale
-     */
-    private fun requestLocationPermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
-            showLocationRationale()
-        } else {
-            sendLocationPermissionRequest()
-        }
-    }
 }
 

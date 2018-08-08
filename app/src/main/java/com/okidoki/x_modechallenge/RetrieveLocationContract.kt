@@ -21,6 +21,8 @@ interface RetrieveLocationContract {
     interface UserActionsListener {
 
         fun setRepeatingLocationAlarm(context: Context)
+
+        fun startLocationAlarm(activity: RetrieveLocationActivity)
     }
 
 }
